@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://62mhy5pxypqp"]
+
+[ext_resource type="Texture2D" uid="uid://di6ye0k3ulsfp" path="res://Assets/BlueBlock.png" id="1_3127c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdoev"]
+size = Vector2(16, 16)
+
+[node name="BlueBlock" type="Area2D"]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_3127c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rdoev")
