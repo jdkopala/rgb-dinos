@@ -12,3 +12,8 @@ physics_interpolation_mode = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_v0iea")
 dash_curve = SubResource("Curve_v0iea")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
