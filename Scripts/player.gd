@@ -72,11 +72,6 @@ func _physics_process(delta: float) -> void:
 		dash_start_position = current_character.position.x
 		dash_direction = direction
 		dash_timer = dash_cooldown
-	else:
-		print('is dash input: ', Input.is_action_just_pressed("dash"))
-		print('direction: ', direction)
-		print('is_dashing: ', is_dashing)
-		print('dash_timer', dash_timer)
 	
 	if is_dashing:
 		var current_distance = abs(current_character.position.x - dash_start_position)
