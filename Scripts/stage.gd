@@ -15,22 +15,22 @@ extends Node2D
 func _ready():
 	# We will always start on red
 	for block in block_groups[0]:
-		enable_block(block)
+		disable_block(block)
 	for block in block_groups[1]:
-		disable_block(block)
+		enable_block(block)
 	for block in block_groups[2]:
-		disable_block(block)
+		enable_block(block)
 		
 # When the current dino is removed
 func _on_player_child_exiting_tree(_dnode: Node) -> void:
 	for block in block_groups[player.previous_color]:
-		disable_block(block)
+		enable_block(block)
 
 # When the dino is replaced
 func _on_player_child_entered_tree(_node: Node) -> void:
 	if player:
 		for block in block_groups[player.current_color]:
-			enable_block(block)
+			disable_block(block)
 
 func disable_block(block: RigidBody2D):
 	# Disable collision box
