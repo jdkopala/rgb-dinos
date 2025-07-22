@@ -11,6 +11,7 @@ extends Node2D
 }
 
 @onready var player: Node2D = $"../Player"
+@onready var goal: Area2D = $Goal
 
 func _ready():
 	# We will always start on red

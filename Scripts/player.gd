@@ -111,3 +111,10 @@ func set_animation(animation: String) -> void:
 	var sprite = current_character.get_node("AnimatedSprite2D")
 	if sprite.animation != animation:
 		sprite.animation = animation
+
+
+func _on_goal_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Dino"):
+		print('Player entered the goal')
+		# level_up()
+	pass # Replace with function body.

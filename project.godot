@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="RGB Dinos"
-run/main_scene="uid://bmo4kx5f7sxf5"
+run/main_scene="uid://dxhjbg63axdnq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+Dino="Player characters"
 
 [input]
 

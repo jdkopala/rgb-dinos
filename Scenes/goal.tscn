@@ -1,0 +1,123 @@
+[gd_scene load_steps=18 format=3 uid="uid://cb76y216p2cin"]
+
+[ext_resource type="Texture2D" uid="uid://ch2gitsrro61i" path="res://Assets/dinocharacters/male/loki - BLUE/egg/crack.png" id="1_vml3n"]
+[ext_resource type="Texture2D" uid="uid://cmkluc0dgbuyp" path="res://Assets/dinocharacters/male/loki - BLUE/egg/hatch.png" id="2_6xg5j"]
+[ext_resource type="Texture2D" uid="uid://bwlp84tnmibno" path="res://Assets/dinocharacters/male/loki - BLUE/egg/move.png" id="3_5y0k3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooahj"]
+atlas = ExtResource("1_vml3n")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ambgq"]
+atlas = ExtResource("1_vml3n")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alprv"]
+atlas = ExtResource("1_vml3n")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss0ua"]
+atlas = ExtResource("1_vml3n")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xhk6"]
+atlas = ExtResource("2_6xg5j")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3mcj"]
+atlas = ExtResource("2_6xg5j")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oo0s"]
+atlas = ExtResource("2_6xg5j")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e0ka"]
+atlas = ExtResource("2_6xg5j")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iowst"]
+atlas = ExtResource("3_5y0k3")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4m8x"]
+atlas = ExtResource("3_5y0k3")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlps3"]
+atlas = ExtResource("3_5y0k3")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eol41"]
+atlas = ExtResource("3_5y0k3")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_487s2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooahj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ambgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alprv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss0ua")
+}],
+"loop": true,
+"name": &"Crack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xhk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3mcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oo0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e0ka")
+}],
+"loop": false,
+"name": &"Hatch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iowst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4m8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlps3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eol41")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svhrk"]
+size = Vector2(13, 16)
+
+[node name="Goal" type="Area2D" groups=["Goal"]]
+scale = Vector2(2, 2)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_487s2")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_svhrk")

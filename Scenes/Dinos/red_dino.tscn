@@ -164,7 +164,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rte4c"]
 size = Vector2(13, 16)
 
-[node name="RedDino" type="CharacterBody2D"]
+[node name="RedDino" type="CharacterBody2D" groups=["Dino"]]
 physics_interpolation_mode = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
