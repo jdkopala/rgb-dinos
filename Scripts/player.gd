@@ -16,6 +16,15 @@ var gravity: float = 980
 @export_range(0, 1) var deceleration = 0.6
 var jump_speed: int = -500
 
+@export var dash_speed: float = 1200.0
+@export var dash_max_distance: float = 60.0
+@export var dash_curve: Curve
+@export var dash_cooldown: float = 1.0
+
+var is_dashing: bool = false
+var dash_start_position = 0
+var dash_direction = 0
+var dash_timer = 0
 # need this because of the character swaps to maintain the facing state
 var flip_sprite: bool = false
 
@@ -38,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		sprite.animation = 'Jump'
 		current_character.velocity.y = jump_speed
 	var speed
-	if Input.is_action_pressed('dash'):
+	if Input.is_action_pressed('run'):
 		speed = run_speed
 	else:
 		speed = walk_speed
@@ -57,6 +66,29 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.animation = 'Idle'
 		current_character.velocity.x = move_toward(current_character.velocity.x, 0, walk_speed * deceleration)
+		
+	if Input.is_action_just_pressed("dash") and direction and not is_dashing and dash_timer <= 0:
+		is_dashing = true
+		dash_start_position = current_character.position.x
+		dash_direction = direction
+		dash_timer = dash_cooldown
+	else:
+		print('is dash input: ', Input.is_action_just_pressed("dash"))
+		print('direction: ', direction)
+		print('is_dashing: ', is_dashing)
+		print('dash_timer', dash_timer)
+	
+	if is_dashing:
+		var current_distance = abs(current_character.position.x - dash_start_position)
+		if current_distance >= dash_max_distance or current_character.is_on_wall():
+			is_dashing = false
+		else:
+			sprite.animation = "Dash"
+			current_character.velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
+			current_character.velocity.y = 0
+	
+	if dash_timer > 0:
+		dash_timer -= delta
 	
 	current_character.move_and_slide()
 	flip_sprite = sprite.flip_h

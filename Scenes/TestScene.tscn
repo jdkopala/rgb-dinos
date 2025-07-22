@@ -14,30 +14,31 @@ position = Vector2(248, 470)
 [node name="Stage" type="Node2D" parent="."]
 
 [node name="RedBlocks" type="Node2D" parent="Stage"]
+position = Vector2(0, -1)
 
 [node name="RedBlock" parent="Stage/RedBlocks" instance=ExtResource("2_iufkg")]
-position = Vector2(571, 400)
+position = Vector2(571, 401)
 
 [node name="RedBlock2" parent="Stage/RedBlocks" instance=ExtResource("2_iufkg")]
-position = Vector2(539, 400)
+position = Vector2(539, 401)
 
 [node name="RedBlock3" parent="Stage/RedBlocks" instance=ExtResource("2_iufkg")]
-position = Vector2(507, 400)
+position = Vector2(507, 401)
 
 [node name="RedBlock4" parent="Stage/RedBlocks" instance=ExtResource("2_iufkg")]
-position = Vector2(475, 400)
+position = Vector2(475, 401)
 
 [node name="RedBlock5" parent="Stage/RedBlocks" instance=ExtResource("2_iufkg")]
-position = Vector2(699, 520)
+position = Vector2(699, 521)
 
 [node name="RedBlock6" parent="Stage/RedBlocks" instance=ExtResource("2_iufkg")]
-position = Vector2(667, 520)
+position = Vector2(667, 521)
 
 [node name="RedBlock7" parent="Stage/RedBlocks" instance=ExtResource("2_iufkg")]
-position = Vector2(635, 520)
+position = Vector2(635, 521)
 
 [node name="RedBlock8" parent="Stage/RedBlocks" instance=ExtResource("2_iufkg")]
-position = Vector2(603, 520)
+position = Vector2(603, 521)
 
 [node name="GreenBlocks" type="Node2D" parent="Stage"]
 

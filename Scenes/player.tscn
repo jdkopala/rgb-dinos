@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bolvtv2y7nmpl"]
+[gd_scene load_steps=3 format=3 uid="uid://bolvtv2y7nmpl"]
 
 [ext_resource type="Script" uid="uid://cqfalihds38pf" path="res://Scripts/player.gd" id="1_v0iea"]
+
+[sub_resource type="Curve" id="Curve_v0iea"]
+_limits = [0.0, 1.0, 0.0, 5.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(5, 0.573034), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Player" type="Node2D"]
 physics_interpolation_mode = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_v0iea")
+dash_curve = SubResource("Curve_v0iea")
