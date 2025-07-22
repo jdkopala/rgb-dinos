@@ -16,10 +16,6 @@ func _ready():
 	# We will always start on red
 	for block in block_groups[0]:
 		disable_block(block)
-	for block in block_groups[1]:
-		enable_block(block)
-	for block in block_groups[2]:
-		enable_block(block)
 		
 # When the current dino is removed
 func _on_player_child_exiting_tree(_dnode: Node) -> void:
@@ -34,14 +30,14 @@ func _on_player_child_entered_tree(_node: Node) -> void:
 
 func disable_block(block: RigidBody2D):
 	# Disable collision box
-	block.get_child(1).disabled = true
+	block.get_node("CollisionShape2D").disabled = true
 	# Animate block fade out
-	block.get_child(2).play("block_fade_out")
+	block.get_node("AnimationPlayer").play("block_fade_out")
 	pass
 	
 func enable_block(block: RigidBody2D):
 	# Enable the collision box
-	block.get_child(1).disabled = false
+	block.get_node("CollisionShape2D").disabled = false
 	# Animate block fade in
-	block.get_child(2).play("block_fade_in")
+	block.get_node("AnimationPlayer").play("block_fade_in")
 	pass
