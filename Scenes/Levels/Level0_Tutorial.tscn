@@ -1,0 +1,207 @@
+[gd_scene load_steps=7 format=3 uid="uid://cefdhinfjuw0l"]
+
+[ext_resource type="PackedScene" uid="uid://bolvtv2y7nmpl" path="res://Scenes/player.tscn" id="1_q8xq7"]
+[ext_resource type="Script" uid="uid://beci4yfpl1gly" path="res://Scripts/stage.gd" id="2_j1udq"]
+[ext_resource type="PackedScene" uid="uid://lbn4k3sdtit7" path="res://Scenes/Blocks/red_block.tscn" id="3_qpn04"]
+[ext_resource type="PackedScene" uid="uid://bf22u30jdqa11" path="res://Scenes/Blocks/green_block.tscn" id="4_r02xw"]
+[ext_resource type="PackedScene" uid="uid://62mhy5pxypqp" path="res://Scenes/Blocks/blue_block.tscn" id="5_1f6hl"]
+[ext_resource type="PackedScene" uid="uid://db3nxtyjvch00" path="res://Scenes/Blocks/gray_block.tscn" id="6_61slg"]
+
+[node name="LevelScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_q8xq7")]
+position = Vector2(16, 600)
+
+[node name="Stage" type="Node2D" parent="."]
+script = ExtResource("2_j1udq")
+
+[node name="RedBlocks" type="Node2D" parent="Stage"]
+
+[node name="RedBlock" parent="Stage/RedBlocks" instance=ExtResource("3_qpn04")]
+position = Vector2(272, 600)
+
+[node name="RedBlock2" parent="Stage/RedBlocks" instance=ExtResource("3_qpn04")]
+position = Vector2(272, 568)
+
+[node name="RedBlock3" parent="Stage/RedBlocks" instance=ExtResource("3_qpn04")]
+position = Vector2(272, 536)
+
+[node name="RedBlock4" parent="Stage/RedBlocks" instance=ExtResource("3_qpn04")]
+position = Vector2(272, 504)
+
+[node name="RedBlock5" parent="Stage/RedBlocks" instance=ExtResource("3_qpn04")]
+position = Vector2(272, 472)
+
+[node name="RedBlock6" parent="Stage/RedBlocks" instance=ExtResource("3_qpn04")]
+position = Vector2(272, 440)
+
+[node name="RedBlock7" parent="Stage/RedBlocks" instance=ExtResource("3_qpn04")]
+position = Vector2(272, 408)
+
+[node name="RedBlock8" parent="Stage/RedBlocks" instance=ExtResource("3_qpn04")]
+position = Vector2(272, 376)
+
+[node name="GreenBlocks" type="Node2D" parent="Stage"]
+
+[node name="GreenBlock" parent="Stage/GreenBlocks" instance=ExtResource("4_r02xw")]
+position = Vector2(368, 600)
+
+[node name="GreenBlock2" parent="Stage/GreenBlocks" instance=ExtResource("4_r02xw")]
+position = Vector2(368, 568)
+
+[node name="GreenBlock3" parent="Stage/GreenBlocks" instance=ExtResource("4_r02xw")]
+position = Vector2(368, 536)
+
+[node name="GreenBlock4" parent="Stage/GreenBlocks" instance=ExtResource("4_r02xw")]
+position = Vector2(368, 504)
+
+[node name="GreenBlock5" parent="Stage/GreenBlocks" instance=ExtResource("4_r02xw")]
+position = Vector2(368, 472)
+
+[node name="GreenBlock6" parent="Stage/GreenBlocks" instance=ExtResource("4_r02xw")]
+position = Vector2(368, 440)
+
+[node name="GreenBlock7" parent="Stage/GreenBlocks" instance=ExtResource("4_r02xw")]
+position = Vector2(368, 408)
+
+[node name="GreenBlock8" parent="Stage/GreenBlocks" instance=ExtResource("4_r02xw")]
+position = Vector2(368, 376)
+
+[node name="BlueBlocks" type="Node2D" parent="Stage"]
+
+[node name="BlueBlock" parent="Stage/BlueBlocks" instance=ExtResource("5_1f6hl")]
+position = Vector2(464, 600)
+
+[node name="BlueBlock2" parent="Stage/BlueBlocks" instance=ExtResource("5_1f6hl")]
+position = Vector2(464, 568)
+
+[node name="BlueBlock3" parent="Stage/BlueBlocks" instance=ExtResource("5_1f6hl")]
+position = Vector2(464, 536)
+
+[node name="BlueBlock4" parent="Stage/BlueBlocks" instance=ExtResource("5_1f6hl")]
+position = Vector2(464, 504)
+
+[node name="BlueBlock5" parent="Stage/BlueBlocks" instance=ExtResource("5_1f6hl")]
+position = Vector2(464, 472)
+
+[node name="BlueBlock6" parent="Stage/BlueBlocks" instance=ExtResource("5_1f6hl")]
+position = Vector2(464, 440)
+
+[node name="BlueBlock7" parent="Stage/BlueBlocks" instance=ExtResource("5_1f6hl")]
+position = Vector2(464, 408)
+
+[node name="BlueBlock8" parent="Stage/BlueBlocks" instance=ExtResource("5_1f6hl")]
+position = Vector2(464, 376)
+
+[node name="GrayBlocks" type="Node2D" parent="Stage"]
+
+[node name="GrayBlock" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(16, 632)
+
+[node name="GrayBlock2" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(48, 632)
+
+[node name="GrayBlock3" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(80, 632)
+
+[node name="GrayBlock4" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(112, 632)
+
+[node name="GrayBlock5" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(144, 632)
+
+[node name="GrayBlock6" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(176, 632)
+
+[node name="GrayBlock7" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(208, 632)
+
+[node name="GrayBlock8" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(240, 632)
+
+[node name="GrayBlock9" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(272, 632)
+
+[node name="GrayBlock10" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(304, 632)
+
+[node name="GrayBlock11" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(336, 632)
+
+[node name="GrayBlock12" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(368, 632)
+
+[node name="GrayBlock13" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(400, 632)
+
+[node name="GrayBlock14" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(432, 632)
+
+[node name="GrayBlock15" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(464, 632)
+
+[node name="GrayBlock16" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(496, 632)
+
+[node name="GrayBlock17" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(528, 632)
+
+[node name="GrayBlock18" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(560, 632)
+
+[node name="GrayBlock19" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(592, 632)
+
+[node name="GrayBlock20" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(624, 632)
+
+[node name="GrayBlock21" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(656, 632)
+
+[node name="GrayBlock22" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(688, 632)
+
+[node name="GrayBlock23" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(720, 632)
+
+[node name="GrayBlock24" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(752, 632)
+
+[node name="GrayBlock25" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(784, 632)
+
+[node name="GrayBlock26" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(816, 632)
+
+[node name="GrayBlock27" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(848, 632)
+
+[node name="GrayBlock28" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(880, 632)
+
+[node name="GrayBlock29" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(912, 632)
+
+[node name="GrayBlock30" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(944, 632)
+
+[node name="GrayBlock31" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(976, 632)
+
+[node name="GrayBlock32" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(1008, 632)
+
+[node name="GrayBlock33" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(1040, 632)
+
+[node name="GrayBlock34" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(1072, 632)
+
+[node name="GrayBlock35" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(1104, 632)
+
+[node name="GrayBlock36" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
+position = Vector2(1136, 632)
+
+[connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]

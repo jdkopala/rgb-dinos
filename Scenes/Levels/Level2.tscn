@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1dsi4vw2hgaw"]
+
+[ext_resource type="Script" uid="uid://beci4yfpl1gly" path="res://Scripts/stage.gd" id="1_0ryud"]
+[ext_resource type="PackedScene" uid="uid://bolvtv2y7nmpl" path="res://Scenes/player.tscn" id="1_m40gi"]
+
+[node name="LevelScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_m40gi")]
+position = Vector2(248, 470)
+
+[node name="Stage" type="Node2D" parent="."]
+script = ExtResource("1_0ryud")
+
+[node name="RedBlocks" type="Node2D" parent="Stage"]
+
+[node name="GreenBlocks" type="Node2D" parent="Stage"]
+
+[node name="BlueBlocks" type="Node2D" parent="Stage"]
+
+[node name="GrayBlocks" type="Node2D" parent="Stage"]
