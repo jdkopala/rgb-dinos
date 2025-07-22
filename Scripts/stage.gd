@@ -14,16 +14,16 @@ extends Node2D
 
 func _ready():
 	# We will always start on red
-	for block in red_blocks:
+	for block in block_groups[0]:
 		enable_block(block)
-	for block in green_blocks:
+	for block in block_groups[1]:
 		disable_block(block)
-	for block in blue_blocks:
+	for block in block_groups[2]:
 		disable_block(block)
 		
 # When the current dino is removed
 func _on_player_child_exiting_tree(_dnode: Node) -> void:
-	for block in block_groups[player.current_color]:
+	for block in block_groups[player.previous_color]:
 		disable_block(block)
 
 # When the dino is replaced

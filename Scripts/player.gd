@@ -2,6 +2,7 @@ extends Node
 
 enum DinoColor { RED, GREEN, BLUE }
 @export_enum("RED", "GREEN", "BLUE") var current_color: int = DinoColor.RED
+var previous_color: int = DinoColor.RED
 @onready var dino_scenes = {
 	DinoColor.RED: preload('res://Scenes/Dinos/red_dino.tscn'),
 	DinoColor.GREEN: preload('res://Scenes/Dinos/green_dino.tscn'),
@@ -23,11 +24,11 @@ var jump_force: int = -500
 @export var dash_max_distance: float = 60.0
 @export var dash_curve: Curve
 @export var dash_cooldown: float = 1.0
-
 var is_dashing: bool = false
 var dash_start_position = 0
 var dash_direction = 0
 var dash_timer = 0
+
 # need this because of the character swaps to maintain the facing state
 var flip_sprite: bool = false
 
@@ -36,15 +37,19 @@ func _ready():
 	add_child(current_character)
 	
 func _physics_process(delta: float) -> void:
+	if current_character:
+		var target_position = current_character.global_position
+		camera.global_position = camera.global_position.lerp(target_position, camera.position_smoothing_speed * delta)
+	
 	if not current_character.is_on_floor():
 		current_character.velocity.y += gravity * delta
 		
-	var sprite = current_character.get_child(0)
+	var sprite = current_character.get_node("AnimatedSprite2D")
 	if Input.is_action_just_pressed('toggle_color'):
 		toggle_dino_color()
 		
 	if Input.is_action_just_pressed("jump") and current_character.is_on_floor():
-		sprite.animation = 'Jump'
+		set_animation('Jump')
 		current_character.velocity.y = jump_force
 	if Input.is_action_just_released("jump") and current_character.velocity.y < 0:
 		current_character.velocity.y *= decelerate_on_jump_release
@@ -62,9 +67,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			sprite.flip_h = false
 		if speed == run_speed:
-			sprite.animation = 'Dash'
+			set_animation('Dash')
 		else:
-			sprite.animation = 'Walk'
+			set_animation('Walk')
 		current_character.velocity.x = direction * speed
 	else:
 		sprite.animation = 'Idle'
@@ -81,7 +86,7 @@ func _physics_process(delta: float) -> void:
 		if current_distance >= dash_max_distance or current_character.is_on_wall():
 			is_dashing = false
 		else:
-			sprite.animation = "Dash"
+			set_animation("Dash")
 			current_character.velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
 			current_character.velocity.y = 0
 	
@@ -92,6 +97,7 @@ func _physics_process(delta: float) -> void:
 	flip_sprite = sprite.flip_h
 	
 func toggle_dino_color():
+	previous_color = current_color
 	current_color = (current_color + 1) % len(dino_scenes)
 	
 	remove_child(current_character)
@@ -100,3 +106,8 @@ func toggle_dino_color():
 	next_dino.position = current_character.position
 	current_character = next_dino
 	add_child(next_dino)
+	
+func set_animation(animation: String) -> void:
+	var sprite = current_character.get_node("AnimatedSprite2D")
+	if sprite.animation != animation:
+		sprite.animation = animation
