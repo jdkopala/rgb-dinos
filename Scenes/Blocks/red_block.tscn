@@ -1,21 +1,82 @@
-[gd_scene load_steps=3 format=3 uid="uid://lbn4k3sdtit7"]
+[gd_scene load_steps=8 format=3 uid="uid://lbn4k3sdtit7"]
 
+[ext_resource type="Script" uid="uid://bqj43gynnfdvf" path="res://Scripts/color_block.gd" id="1_rdoev"]
 [ext_resource type="Texture2D" uid="uid://b3hb5yq3w3ha4" path="res://Assets/RedBlock.png" id="1_ty6lm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdoev"]
 size = Vector2(16, 16)
 
+[sub_resource type="Animation" id="Animation_ty6lm"]
+resource_name = "block_fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157)]
+}
+
+[sub_resource type="Animation" id="Animation_rdoev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mg4j6"]
+resource_name = "block_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rdoev"]
+_data = {
+&"RESET": SubResource("Animation_rdoev"),
+&"block_fade_in": SubResource("Animation_mg4j6"),
+&"block_fade_out": SubResource("Animation_ty6lm")
+}
+
 [node name="RedBlock" type="RigidBody2D"]
 physics_interpolation_mode = 2
 gravity_scale = 0.0
 freeze = true
+script = ExtResource("1_rdoev")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 physics_interpolation_mode = 2
 texture_filter = 1
+use_parent_material = true
 scale = Vector2(2, 2)
 texture = ExtResource("1_ty6lm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_rdoev")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rdoev")
+}
+speed_scale = 3.0

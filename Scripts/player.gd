@@ -96,6 +96,6 @@ func toggle_dino_color():
 	var next_dino = dinos[next_color].instantiate()
 	next_dino.get_child(0).flip_h = flip_sprite
 	next_dino.position = current_character.position
-	add_child(next_dino)
-	current_character = next_dino
 	current_color = next_color
+	current_character = next_dino
+	add_child(next_dino)

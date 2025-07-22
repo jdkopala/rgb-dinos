@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmo4kx5f7sxf5"]
+[gd_scene load_steps=7 format=3 uid="uid://bmo4kx5f7sxf5"]
 
 [ext_resource type="PackedScene" uid="uid://bolvtv2y7nmpl" path="res://Scenes/player.tscn" id="1_b5ayd"]
 [ext_resource type="PackedScene" uid="uid://lbn4k3sdtit7" path="res://Scenes/Blocks/red_block.tscn" id="2_iufkg"]
+[ext_resource type="Script" uid="uid://beci4yfpl1gly" path="res://Scripts/stage.gd" id="2_qsjrb"]
 [ext_resource type="PackedScene" uid="uid://bf22u30jdqa11" path="res://Scenes/Blocks/green_block.tscn" id="3_0f5h7"]
 [ext_resource type="PackedScene" uid="uid://62mhy5pxypqp" path="res://Scenes/Blocks/blue_block.tscn" id="4_qsjrb"]
 [ext_resource type="PackedScene" uid="uid://db3nxtyjvch00" path="res://Scenes/Blocks/gray_block.tscn" id="5_0f5h7"]
@@ -12,6 +13,7 @@
 position = Vector2(248, 470)
 
 [node name="Stage" type="Node2D" parent="."]
+script = ExtResource("2_qsjrb")
 
 [node name="RedBlocks" type="Node2D" parent="Stage"]
 position = Vector2(0, -1)
@@ -126,3 +128,6 @@ position = Vector2(282, 520)
 
 [node name="GrayBlock11" parent="Stage/GrayBlocks" instance=ExtResource("5_0f5h7")]
 position = Vector2(250, 520)
+
+[connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]
