@@ -1,13 +1,14 @@
 extends Node
 
-@onready var red_dino: PackedScene = preload('res://Scenes/Dinos/red_dino.tscn')
-@onready var blue_dino: PackedScene = preload('res://Scenes/Dinos/blue_dino.tscn')
-@onready var green_dino: PackedScene = preload('res://Scenes/Dinos/green_dino.tscn')
-var dinos: Array[PackedScene]
+enum DinoColor { RED, GREEN, BLUE }
+@export_enum("RED", "GREEN", "BLUE") var current_color: int = DinoColor.RED
+@onready var dino_scenes = {
+	DinoColor.RED: preload('res://Scenes/Dinos/red_dino.tscn'),
+	DinoColor.GREEN: preload('res://Scenes/Dinos/green_dino.tscn'),
+	DinoColor.BLUE: preload('res://Scenes/Dinos/blue_dino.tscn')
+}
 
-@export_enum('red', 'green', 'blue') var current_color: int = 0
-enum CurrentColor {red, green, blue}
-
+@onready var camera: Camera2D = $Camera2D
 var current_character: CharacterBody2D
 
 var gravity: float = 980
@@ -31,11 +32,8 @@ var dash_timer = 0
 var flip_sprite: bool = false
 
 func _ready():
-	current_character = red_dino.instantiate()
+	current_character = dino_scenes[DinoColor.RED].instantiate()
 	add_child(current_character)
-	dinos.append(red_dino)
-	dinos.append(green_dino)
-	dinos.append(blue_dino)
 	
 func _physics_process(delta: float) -> void:
 	if not current_character.is_on_floor():
@@ -94,13 +92,11 @@ func _physics_process(delta: float) -> void:
 	flip_sprite = sprite.flip_h
 	
 func toggle_dino_color():
-	var next_color = current_color + 1
-	if next_color > 2:
-		next_color = 0
+	current_color = (current_color + 1) % len(dino_scenes)
+	
 	remove_child(current_character)
-	var next_dino = dinos[next_color].instantiate()
+	var next_dino = dino_scenes[current_color].instantiate()
 	next_dino.get_child(0).flip_h = flip_sprite
 	next_dino.position = current_character.position
-	current_color = next_color
 	current_character = next_dino
 	add_child(next_dino)
