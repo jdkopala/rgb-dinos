@@ -14,7 +14,9 @@ var gravity: float = 980
 @export var walk_speed: int = 250
 @export var run_speed: int = 350
 @export_range(0, 1) var deceleration = 0.6
-var jump_speed: int = -500
+
+var jump_force: int = -500
+@export_range(0, 1) var decelerate_on_jump_release = 0.3
 
 @export var dash_speed: float = 1200.0
 @export var dash_max_distance: float = 60.0
@@ -45,7 +47,10 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("jump") and current_character.is_on_floor():
 		sprite.animation = 'Jump'
-		current_character.velocity.y = jump_speed
+		current_character.velocity.y = jump_force
+	if Input.is_action_just_released("jump") and current_character.velocity.y < 0:
+		current_character.velocity.y *= decelerate_on_jump_release
+	
 	var speed
 	if Input.is_action_pressed('run'):
 		speed = run_speed
