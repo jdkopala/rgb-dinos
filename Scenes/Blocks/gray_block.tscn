@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://lbn4k3sdtit7"]
+[gd_scene load_steps=3 format=3 uid="uid://db3nxtyjvch00"]
 
-[ext_resource type="Texture2D" uid="uid://b3hb5yq3w3ha4" path="res://Assets/RedBlock.png" id="1_ty6lm"]
+[ext_resource type="Texture2D" uid="uid://bvjxysf7y15fo" path="res://Assets/GreyBlock.png" id="1_ux87j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdoev"]
 size = Vector2(16, 16)
 
-[node name="RedBlock" type="RigidBody2D"]
+[node name="GrayBlock" type="RigidBody2D"]
 physics_interpolation_mode = 2
 gravity_scale = 0.0
 freeze = true
@@ -14,7 +14,7 @@ freeze = true
 physics_interpolation_mode = 2
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("1_ty6lm")
+texture = ExtResource("1_ux87j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)

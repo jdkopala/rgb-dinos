@@ -162,17 +162,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rte4c"]
-size = Vector2(12, 15)
+size = Vector2(13, 16)
 
-[node name="BlueDino" type="Area2D"]
+[node name="BlueDino" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_f60y1")
-animation = &"Dash"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.379889
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_rte4c")
