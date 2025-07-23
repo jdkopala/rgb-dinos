@@ -31,6 +31,7 @@ var dash_timer = 0
 
 # need this because of the character swaps to maintain the facing state
 var flip_sprite: bool = false
+var is_dead: bool = false
 var freeze_controls: bool = false
 
 func _ready():
@@ -95,9 +96,15 @@ func _physics_process(delta: float) -> void:
 		
 		if dash_timer > 0:
 			dash_timer -= delta
-	else:
+	elif freeze_controls and !is_dead:
 		current_character.velocity = Vector2(0,0)
 		set_animation('Idle')
+		
+	if is_dead:
+		#TODO: Add SFX and UI
+		set_animation('Die')
+		current_character.velocity = Vector2(0,0)
+		freeze_controls = true
 		
 	current_character.move_and_slide()
 	flip_sprite = sprite.flip_h
@@ -125,6 +132,4 @@ func _on_goal_body_entered(body: Node2D) -> void:
 
 func _on_spikes_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Dino"):
-		print('Touched the spikes, you die now')
-		#TODO: Kill the player, add death animation/sound/game over screen
-		pass # Replace with function body.
+		is_dead = true

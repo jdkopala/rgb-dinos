@@ -13,5 +13,5 @@ func play_audio(stream: AudioStream):
 	audio.play()
 
 func _on_sprite_animation_finished() -> void:
-	GameManager.show_level_complete_ui(false)
+	GameManager.show_level_complete_ui()
 	pass # Replace with function body.

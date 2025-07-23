@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwkhfi1o4lvcq"]
+[gd_scene load_steps=32 format=3 uid="uid://cwkhfi1o4lvcq"]
 
 [ext_resource type="Texture2D" uid="uid://csovo5o4l4fg" path="res://Assets/dinocharacters/male/olaf - GREEN/base/dash.png" id="1_jlfjt"]
 [ext_resource type="Texture2D" uid="uid://boh14kdqatdqj" path="res://Assets/dinocharacters/male/olaf - GREEN/base/idle.png" id="2_a0ewt"]
+[ext_resource type="Texture2D" uid="uid://b8ai2w5v64060" path="res://Assets/dinocharacters/male/olaf - GREEN/base/dead.png" id="2_gt6jo"]
 [ext_resource type="Texture2D" uid="uid://c6rl3kqmvpkyj" path="res://Assets/dinocharacters/male/olaf - GREEN/base/jump.png" id="3_23tm5"]
 [ext_resource type="Texture2D" uid="uid://cs8v8pm7qmkcc" path="res://Assets/dinocharacters/male/olaf - GREEN/base/move.png" id="4_lomy3"]
 
@@ -28,6 +29,26 @@ region = Rect2(96, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyixs"]
 atlas = ExtResource("1_jlfjt")
 region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifh10"]
+atlas = ExtResource("2_gt6jo")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyg2o"]
+atlas = ExtResource("2_gt6jo")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp7uy"]
+atlas = ExtResource("2_gt6jo")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04c46"]
+atlas = ExtResource("2_gt6jo")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8da8w"]
+atlas = ExtResource("2_gt6jo")
+region = Rect2(96, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsxq8"]
 atlas = ExtResource("2_a0ewt")
@@ -108,6 +129,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ifh10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyg2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp7uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04c46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8da8w")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rsxq8")
 }, {
 "duration": 1.0,
@@ -169,7 +213,7 @@ size = Vector2(13, 16)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_f60y1")
-animation = &"Idle"
+animation = &"Die"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://5jt5jw4d0lmy"]
+[gd_scene load_steps=32 format=3 uid="uid://5jt5jw4d0lmy"]
 
 [ext_resource type="Texture2D" uid="uid://dramobv4p6gde" path="res://Assets/dinocharacters/male/loki - BLUE/base/dash.png" id="1_ukb6h"]
 [ext_resource type="Texture2D" uid="uid://dyncqwpmntuks" path="res://Assets/dinocharacters/male/loki - BLUE/base/idle.png" id="2_j5idg"]
+[ext_resource type="Texture2D" uid="uid://tadb1hklevgx" path="res://Assets/dinocharacters/male/loki - BLUE/base/dead.png" id="2_xabsc"]
 [ext_resource type="Texture2D" uid="uid://nudht58gifao" path="res://Assets/dinocharacters/male/loki - BLUE/base/jump.png" id="3_o5uj2"]
 [ext_resource type="Texture2D" uid="uid://bbqfkuj2nbfc1" path="res://Assets/dinocharacters/male/loki - BLUE/base/move.png" id="4_2qxye"]
 
@@ -28,6 +29,26 @@ region = Rect2(96, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyixs"]
 atlas = ExtResource("1_ukb6h")
 region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdvbt"]
+atlas = ExtResource("2_xabsc")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1yfu"]
+atlas = ExtResource("2_xabsc")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfl8x"]
+atlas = ExtResource("2_xabsc")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37hba"]
+atlas = ExtResource("2_xabsc")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oryo"]
+atlas = ExtResource("2_xabsc")
+region = Rect2(96, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsxq8"]
 atlas = ExtResource("2_j5idg")
@@ -108,6 +129,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qdvbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1yfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfl8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37hba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oryo")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rsxq8")
 }, {
 "duration": 1.0,
@@ -169,7 +213,7 @@ size = Vector2(13, 16)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_f60y1")
-animation = &"Idle"
+animation = &"Die"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -33,7 +33,7 @@ func load_level(level_index: int):
 		current_stage.queue_free()
 		
 	if level_index >= level_scenes.size():
-		show_level_complete_ui(true)
+		show_level_complete_ui()
 		return
 	
 	current_stage = level_scenes[current_level].instantiate()
@@ -43,7 +43,7 @@ func level_complete():
 	var goal = main_scene.get_node('LevelScene').get_node('Goal')
 	goal.level_complete_animate()
 	
-func show_level_complete_ui(game_complete: bool):
+func show_level_complete_ui():
 	if current_stage:
 		current_stage.queue_free()
 	var level_complete_scene = load("res://Scenes/LevelComplete.tscn").instantiate()
