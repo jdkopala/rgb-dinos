@@ -31,68 +31,74 @@ var dash_timer = 0
 
 # need this because of the character swaps to maintain the facing state
 var flip_sprite: bool = false
+var freeze_controls: bool = false
 
 func _ready():
 	current_character = dino_scenes[DinoColor.RED].instantiate()
 	add_child(current_character)
 	
 func _physics_process(delta: float) -> void:
-	if current_character:
-		var target_position = current_character.global_position
-		camera.global_position = camera.global_position.lerp(target_position, camera.position_smoothing_speed * delta)
-	
-	if not current_character.is_on_floor():
-		current_character.velocity.y += gravity * delta
-		
 	var sprite = current_character.get_node("AnimatedSprite2D")
-	if Input.is_action_just_pressed('toggle_color'):
-		toggle_dino_color()
+	
+	if !freeze_controls:
+		if current_character:
+			var target_position = current_character.global_position
+			camera.global_position = camera.global_position.lerp(target_position, camera.position_smoothing_speed * delta)
 		
-	if Input.is_action_just_pressed("jump") and current_character.is_on_floor():
-		set_animation('Jump')
-		current_character.velocity.y = jump_force
-	if Input.is_action_just_released("jump") and current_character.velocity.y < 0:
-		current_character.velocity.y *= decelerate_on_jump_release
-	
-	var speed
-	if Input.is_action_pressed('run'):
-		speed = run_speed
-	else:
-		speed = walk_speed
-	
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		if direction < 0:
-			sprite.flip_h = true
+		if not current_character.is_on_floor():
+			current_character.velocity.y += gravity * delta
+			
+		if Input.is_action_just_pressed('toggle_color'):
+			toggle_dino_color()
+			
+		if Input.is_action_just_pressed("jump") and current_character.is_on_floor():
+			set_animation('Jump')
+			current_character.velocity.y = jump_force
+		if Input.is_action_just_released("jump") and current_character.velocity.y < 0:
+			current_character.velocity.y *= decelerate_on_jump_release
+		
+		var speed
+		if Input.is_action_pressed('run'):
+			speed = run_speed
 		else:
-			sprite.flip_h = false
-		if speed == run_speed:
-			set_animation('Dash')
+			speed = walk_speed
+		
+		var direction = Input.get_axis("left", "right")
+		if direction:
+			if direction < 0:
+				sprite.flip_h = true
+			else:
+				sprite.flip_h = false
+			if speed == run_speed:
+				set_animation('Dash')
+			else:
+				set_animation('Walk')
+			current_character.velocity.x = direction * speed
 		else:
-			set_animation('Walk')
-		current_character.velocity.x = direction * speed
+			set_animation('Idle')
+			current_character.velocity.x = move_toward(current_character.velocity.x, 0, walk_speed * deceleration)
+			
+		if Input.is_action_just_pressed("dash") and direction and not is_dashing and dash_timer <= 0:
+			is_dashing = true
+			dash_start_position = current_character.position.x
+			dash_direction = direction
+			dash_timer = dash_cooldown
+		
+		if is_dashing:
+			var current_distance = abs(current_character.position.x - dash_start_position)
+			if current_distance >= dash_max_distance or current_character.is_on_wall():
+				is_dashing = false
+			else:
+				set_animation("Dash")
+				current_character.velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
+				current_character.velocity.y = 0
+		
+		if dash_timer > 0:
+			dash_timer -= delta
 	else:
+		current_character.velocity = Vector2(0,0)
 		set_animation('Idle')
-		current_character.velocity.x = move_toward(current_character.velocity.x, 0, walk_speed * deceleration)
 		
-	if Input.is_action_just_pressed("dash") and direction and not is_dashing and dash_timer <= 0:
-		is_dashing = true
-		dash_start_position = current_character.position.x
-		dash_direction = direction
-		dash_timer = dash_cooldown
-	
-	if is_dashing:
-		var current_distance = abs(current_character.position.x - dash_start_position)
-		if current_distance >= dash_max_distance or current_character.is_on_wall():
-			is_dashing = false
-		else:
-			set_animation("Dash")
-			current_character.velocity.x = dash_direction * dash_speed * dash_curve.sample(current_distance / dash_max_distance)
-			current_character.velocity.y = 0
-	
-	if dash_timer > 0:
-		dash_timer -= delta
-	
 	current_character.move_and_slide()
 	flip_sprite = sprite.flip_h
 	
@@ -115,4 +121,5 @@ func set_animation(animation: String) -> void:
 func _on_goal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Dino"):
 		print('Player entered the goal')
+		freeze_controls = true
 		GameManager.level_complete()

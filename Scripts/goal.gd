@@ -6,9 +6,12 @@ extends Area2D
 
 func level_complete_animate():
 	play_audio(victory_sound)
-	sprite.animation = "Crack"
 	sprite.animation = "Hatch"
 
 func play_audio(stream: AudioStream):
 	audio.stream = stream
 	audio.play()
+
+func _on_sprite_animation_finished() -> void:
+	GameManager.show_level_complete_ui(false)
+	pass # Replace with function body.
