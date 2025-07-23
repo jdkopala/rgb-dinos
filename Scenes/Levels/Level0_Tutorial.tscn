@@ -384,9 +384,9 @@ position = Vector2(1136, 176)
 [node name="GrayBlock51" parent="Stage/GrayBlocks" instance=ExtResource("6_61slg")]
 position = Vector2(1136, 144)
 
-[node name="Goal" parent="Stage" instance=ExtResource("7_r02xw")]
+[node name="Goal" parent="." instance=ExtResource("7_r02xw")]
 position = Vector2(944, 592)
 
 [connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]
-[connection signal="body_entered" from="Stage/Goal" to="Player" method="_on_goal_body_entered"]
+[connection signal="body_entered" from="Goal" to="Player" method="_on_goal_body_entered"]

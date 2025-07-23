@@ -11,7 +11,7 @@ extends Node2D
 }
 
 @onready var player: Node2D = $"../Player"
-@onready var goal: Area2D = $Goal
+var goal: Area2D
 
 func _ready():
 	# We will always start on red
@@ -41,4 +41,8 @@ func enable_block(block: RigidBody2D):
 	block.get_node("CollisionShape2D").disabled = false
 	# Animate block fade in
 	block.get_node("AnimationPlayer").play("block_fade_in")
+	pass
+
+func level_complete():
+	#goal.level_complete_animate()
 	pass

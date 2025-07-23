@@ -23,7 +23,7 @@ var jump_force: int = -500
 @export var dash_speed: float = 1200.0
 @export var dash_max_distance: float = 60.0
 @export var dash_curve: Curve
-@export var dash_cooldown: float = 1.0
+@export var dash_cooldown: float = 0.8
 var is_dashing: bool = false
 var dash_start_position = 0
 var dash_direction = 0
@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 			set_animation('Walk')
 		current_character.velocity.x = direction * speed
 	else:
-		sprite.animation = 'Idle'
+		set_animation('Idle')
 		current_character.velocity.x = move_toward(current_character.velocity.x, 0, walk_speed * deceleration)
 		
 	if Input.is_action_just_pressed("dash") and direction and not is_dashing and dash_timer <= 0:
@@ -112,9 +112,7 @@ func set_animation(animation: String) -> void:
 	if sprite.animation != animation:
 		sprite.animation = animation
 
-
 func _on_goal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Dino"):
 		print('Player entered the goal')
-		# level_up()
-	pass # Replace with function body.
+		GameManager.level_complete()

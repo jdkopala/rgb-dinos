@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdoh4oet4r7w2"]
+[gd_scene load_steps=5 format=3 uid="uid://cdoh4oet4r7w2"]
 
 [ext_resource type="Script" uid="uid://beci4yfpl1gly" path="res://Scripts/stage.gd" id="1_5jgm0"]
 [ext_resource type="PackedScene" uid="uid://bolvtv2y7nmpl" path="res://Scenes/player.tscn" id="1_36ke7"]
+[ext_resource type="PackedScene" uid="uid://db3nxtyjvch00" path="res://Scenes/Blocks/gray_block.tscn" id="3_riv1q"]
+[ext_resource type="PackedScene" uid="uid://cb76y216p2cin" path="res://Scenes/goal.tscn" id="4_xvio3"]
 
 [node name="LevelScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_36ke7")]
-position = Vector2(248, 470)
+position = Vector2(16, 592)
 
 [node name="Stage" type="Node2D" parent="."]
 script = ExtResource("1_5jgm0")
@@ -18,3 +20,28 @@ script = ExtResource("1_5jgm0")
 [node name="BlueBlocks" type="Node2D" parent="Stage"]
 
 [node name="GrayBlocks" type="Node2D" parent="Stage"]
+
+[node name="GrayBlock" parent="Stage/GrayBlocks" instance=ExtResource("3_riv1q")]
+position = Vector2(16, 624)
+
+[node name="GrayBlock2" parent="Stage/GrayBlocks" instance=ExtResource("3_riv1q")]
+position = Vector2(48, 624)
+
+[node name="GrayBlock3" parent="Stage/GrayBlocks" instance=ExtResource("3_riv1q")]
+position = Vector2(80, 624)
+
+[node name="GrayBlock4" parent="Stage/GrayBlocks" instance=ExtResource("3_riv1q")]
+position = Vector2(112, 624)
+
+[node name="GrayBlock5" parent="Stage/GrayBlocks" instance=ExtResource("3_riv1q")]
+position = Vector2(144, 624)
+
+[node name="GrayBlock6" parent="Stage/GrayBlocks" instance=ExtResource("3_riv1q")]
+position = Vector2(176, 624)
+
+[node name="Goal" parent="." instance=ExtResource("4_xvio3")]
+position = Vector2(176, 592)
+
+[connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]
+[connection signal="body_entered" from="Goal" to="Player" method="_on_goal_body_entered"]

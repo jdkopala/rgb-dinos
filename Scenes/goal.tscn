@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://cb76y216p2cin"]
+[gd_scene load_steps=19 format=3 uid="uid://cb76y216p2cin"]
 
+[ext_resource type="Script" uid="uid://d4gqejtcygskl" path="res://Scripts/goal.gd" id="1_in2gb"]
 [ext_resource type="Texture2D" uid="uid://ch2gitsrro61i" path="res://Assets/dinocharacters/male/loki - BLUE/egg/crack.png" id="1_vml3n"]
 [ext_resource type="Texture2D" uid="uid://cmkluc0dgbuyp" path="res://Assets/dinocharacters/male/loki - BLUE/egg/hatch.png" id="2_6xg5j"]
 [ext_resource type="Texture2D" uid="uid://bwlp84tnmibno" path="res://Assets/dinocharacters/male/loki - BLUE/egg/move.png" id="3_5y0k3"]
@@ -67,7 +68,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ss0ua")
 }],
-"loop": true,
+"loop": false,
 "name": &"Crack",
 "speed": 5.0
 }, {
@@ -111,11 +112,13 @@ size = Vector2(13, 16)
 
 [node name="Goal" type="Area2D" groups=["Goal"]]
 scale = Vector2(2, 2)
+script = ExtResource("1_in2gb")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_487s2")
 animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

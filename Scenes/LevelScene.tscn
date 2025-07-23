@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmo4kx5f7sxf5"]
+
+[ext_resource type="PackedScene" uid="uid://bolvtv2y7nmpl" path="res://Scenes/player.tscn" id="1_4qks7"]
+[ext_resource type="Script" uid="uid://beci4yfpl1gly" path="res://Scripts/stage.gd" id="2_y44me"]
+[ext_resource type="PackedScene" uid="uid://cb76y216p2cin" path="res://Scenes/goal.tscn" id="3_rac3m"]
+
+[node name="LevelScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_4qks7")]
+position = Vector2(248, 470)
+
+[node name="Stage" type="Node2D" parent="."]
+script = ExtResource("2_y44me")
+
+[node name="RedBlocks" type="Node2D" parent="Stage"]
+
+[node name="GreenBlocks" type="Node2D" parent="Stage"]
+
+[node name="BlueBlocks" type="Node2D" parent="Stage"]
+
+[node name="GrayBlocks" type="Node2D" parent="Stage"]
+
+[node name="Goal" parent="." instance=ExtResource("3_rac3m")]
+
+[connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]
+[connection signal="body_entered" from="Goal" to="Player" method="_on_goal_body_entered"]
