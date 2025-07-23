@@ -20,6 +20,8 @@ script = ExtResource("2_y44me")
 
 [node name="GrayBlocks" type="Node2D" parent="Stage"]
 
+[node name="Hazards" type="Node2D" parent="Stage"]
+
 [node name="Goal" parent="." instance=ExtResource("3_rac3m")]
 
 [connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]

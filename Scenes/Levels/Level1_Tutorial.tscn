@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cefdhinfjuw0l"]
+[gd_scene load_steps=9 format=3 uid="uid://cefdhinfjuw0l"]
 
 [ext_resource type="PackedScene" uid="uid://bolvtv2y7nmpl" path="res://Scenes/player.tscn" id="1_gl672"]
 [ext_resource type="Script" uid="uid://beci4yfpl1gly" path="res://Scripts/stage.gd" id="2_tofop"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://62mhy5pxypqp" path="res://Scenes/Blocks/blue_block.tscn" id="5_vg0vj"]
 [ext_resource type="PackedScene" uid="uid://db3nxtyjvch00" path="res://Scenes/Blocks/gray_block.tscn" id="6_mkcdj"]
 [ext_resource type="PackedScene" uid="uid://cb76y216p2cin" path="res://Scenes/goal.tscn" id="7_8liyf"]
+[ext_resource type="PackedScene" uid="uid://btmfi4mqky0xh" path="res://Scenes/Blocks/spikes.tscn" id="7_tofop"]
 
 [node name="LevelScene" type="Node2D"]
 
@@ -384,9 +385,18 @@ position = Vector2(1136, 176)
 [node name="GrayBlock51" parent="Stage/GrayBlocks" instance=ExtResource("6_mkcdj")]
 position = Vector2(1136, 144)
 
+[node name="Hazards" type="Node2D" parent="Stage"]
+
+[node name="Spikes" parent="Stage/Hazards" instance=ExtResource("7_tofop")]
+position = Vector2(552, 600)
+
+[node name="Spikes2" parent="Stage/Hazards" instance=ExtResource("7_tofop")]
+position = Vector2(648, 600)
+
 [node name="Goal" parent="." instance=ExtResource("7_8liyf")]
 position = Vector2(944, 592)
 
 [connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]
+[connection signal="body_entered" from="Stage/Hazards/Spikes" to="Player" method="_on_spikes_body_entered"]
 [connection signal="body_entered" from="Goal" to="Player" method="_on_goal_body_entered"]

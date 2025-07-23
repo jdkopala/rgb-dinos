@@ -33,7 +33,6 @@ func load_level(level_index: int):
 		current_stage.queue_free()
 		
 	if level_index >= level_scenes.size():
-		print("All levels completed")
 		show_level_complete_ui(true)
 		return
 	

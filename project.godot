@@ -22,6 +22,7 @@ GameManager="*res://Scripts/GameManager.gd"
 [global_group]
 
 Dino="Player characters"
+Hazards="Things that will make the player die"
 
 [input]
 

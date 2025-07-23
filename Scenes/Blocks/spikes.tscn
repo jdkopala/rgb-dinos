@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://btmfi4mqky0xh"]
+
+[ext_resource type="Texture2D" uid="uid://be0np7e5mcjst" path="res://Assets/16-bit-spike-Sheet.png" id="1_rhpua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubot2"]
+size = Vector2(64, 13)
+
+[node name="Spikes" type="Area2D" groups=["Hazards"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_rhpua")
+hframes = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 0)
+texture = ExtResource("1_rhpua")
+hframes = 4
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 0)
+texture = ExtResource("1_rhpua")
+hframes = 4
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(48, 0)
+texture = ExtResource("1_rhpua")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 1.5)
+shape = SubResource("RectangleShape2D_ubot2")

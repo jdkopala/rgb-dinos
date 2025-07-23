@@ -120,6 +120,11 @@ func set_animation(animation: String) -> void:
 
 func _on_goal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Dino"):
-		print('Player entered the goal')
 		freeze_controls = true
 		GameManager.level_complete()
+
+func _on_spikes_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Dino"):
+		print('Touched the spikes, you die now')
+		#TODO: Kill the player, add death animation/sound/game over screen
+		pass # Replace with function body.
