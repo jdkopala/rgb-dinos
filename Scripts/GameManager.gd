@@ -2,6 +2,7 @@ extends Node2D
 
 var current_level: int = 0
 var level_scenes = []
+var completed_levels = []
 
 var main_scene: Node = null
 var current_stage: Node = null
@@ -40,6 +41,7 @@ func load_level(level_index: int):
 	main_scene.call_deferred("add_child", current_stage)
 
 func level_complete():
+	#TODO: Store the completed level index for a level select menu later
 	var goal = main_scene.get_node('LevelScene').get_node('Goal')
 	goal.level_complete_animate()
 	

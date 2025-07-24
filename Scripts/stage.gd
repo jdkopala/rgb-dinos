@@ -19,7 +19,7 @@ func _ready():
 		disable_block(block)
 		
 # When the current dino is removed
-func _on_player_child_exiting_tree(_dnode: Node) -> void:
+func _on_player_child_exiting_tree(_node: Node) -> void:
 	for block in block_groups[player.previous_color]:
 		enable_block(block)
 
