@@ -42,7 +42,4 @@ func enable_block(block: RigidBody2D):
 	# Animate block fade in
 	block.get_node("AnimationPlayer").play("block_fade_in")
 	pass
-
-func level_complete():
-	#goal.level_complete_animate()
-	pass
+	

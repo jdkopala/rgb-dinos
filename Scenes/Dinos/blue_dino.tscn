@@ -1,5 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://5jt5jw4d0lmy"]
+[gd_scene load_steps=33 format=3 uid="uid://5jt5jw4d0lmy"]
 
+[ext_resource type="Script" uid="uid://cieelpvsd6gxi" path="res://Scripts/dino.gd" id="1_qdvbt"]
 [ext_resource type="Texture2D" uid="uid://dramobv4p6gde" path="res://Assets/dinocharacters/male/loki - BLUE/base/dash.png" id="1_ukb6h"]
 [ext_resource type="Texture2D" uid="uid://dyncqwpmntuks" path="res://Assets/dinocharacters/male/loki - BLUE/base/idle.png" id="2_j5idg"]
 [ext_resource type="Texture2D" uid="uid://tadb1hklevgx" path="res://Assets/dinocharacters/male/loki - BLUE/base/dead.png" id="2_xabsc"]
@@ -209,6 +210,7 @@ animations = [{
 size = Vector2(13, 15)
 
 [node name="BlueDino" type="CharacterBody2D" groups=["Dino"]]
+script = ExtResource("1_qdvbt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -219,3 +221,5 @@ autoplay = "Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_rte4c")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 		freeze_controls = true
 		#TODO: Add SFX and UI
 		set_animation('Die')
-		GameManager.show_game_over_ui()
+		#GameManager.show_game_over_ui()
 		
 	current_character.move_and_slide()
 	flip_sprite = sprite.flip_h
