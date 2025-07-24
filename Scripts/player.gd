@@ -20,7 +20,7 @@ var gravity: float = 980
 var jump_force: int = -500
 @export_range(0, 1) var decelerate_on_jump_release = 0.3
 
-@export var dash_speed: float = 1200.0
+@export var dash_speed: float = 1000.0
 @export var dash_max_distance: float = 60.0
 @export var dash_curve: Curve
 @export var dash_cooldown: float = 0.8
@@ -130,6 +130,6 @@ func _on_goal_body_entered(body: Node2D) -> void:
 		freeze_controls = true
 		GameManager.level_complete()
 
-func _on_spikes_body_entered(body: Node2D) -> void:
+func _on_hazard_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Dino"):
 		is_dead = true

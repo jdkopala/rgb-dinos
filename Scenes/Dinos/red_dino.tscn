@@ -206,7 +206,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rte4c"]
-size = Vector2(13, 16)
+size = Vector2(13, 15)
 
 [node name="RedDino" type="CharacterBody2D" groups=["Dino"]]
 physics_interpolation_mode = 1
@@ -218,5 +218,5 @@ animation = &"Die"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 1)
+position = Vector2(1.5, 0.5)
 shape = SubResource("RectangleShape2D_rte4c")

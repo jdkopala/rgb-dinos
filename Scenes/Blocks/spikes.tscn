@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://be0np7e5mcjst" path="res://Assets/16-bit-spike-Sheet.png" id="1_rhpua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubot2"]
-size = Vector2(64, 13)
+size = Vector2(60, 12)
 
 [node name="Spikes" type="Area2D" groups=["Hazards"]]
 
@@ -31,5 +31,5 @@ texture = ExtResource("1_rhpua")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(24, 1.5)
+position = Vector2(24, 2)
 shape = SubResource("RectangleShape2D_ubot2")
