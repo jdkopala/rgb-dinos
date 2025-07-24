@@ -2,12 +2,12 @@ extends Control
 
 @onready var label = $Label
 @onready var nextBtn = $VBoxContainer/NextBtn
-@onready var homeBtn = $VBoxContainer/HomeBtn
 
 func _ready():
 	if GameManager.current_level >= GameManager.level_scenes.size() - 1:
 		label.text = "Thanks for playing!"
-		nextBtn.disabled = true
+		if nextBtn:
+			nextBtn.disabled = true
 	# TODO: Play victory music from assets
 	pass
 	
