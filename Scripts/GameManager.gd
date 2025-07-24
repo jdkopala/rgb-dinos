@@ -50,7 +50,19 @@ func show_level_complete_ui():
 		current_stage.queue_free()
 	var level_complete_scene = load("res://Scenes/LevelComplete.tscn").instantiate()
 	UI = level_complete_scene
-	main_scene.add_child(level_complete_scene)
+	main_scene.add_child(UI)
+	
+func show_game_over_ui():
+	if current_stage:
+		current_stage.queue_free()
+	var game_over_scene = load('res://Scenes/GameOver.tscn').instantiate()
+	UI = game_over_scene
+	main_scene.add_child(UI)
+	
+func restart_level():
+	if UI:
+		UI.queue_free()
+	load_level(current_level)
 	
 func start_next_level():
 	if UI:

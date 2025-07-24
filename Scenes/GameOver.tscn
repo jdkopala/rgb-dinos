@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bstdyn5he6t6l"]
+[gd_scene load_steps=3 format=3 uid="uid://cspo7tftm3qp0"]
 
-[ext_resource type="Script" uid="uid://ckh0jdu7hj2j" path="res://Scripts/level_complete.gd" id="1_eqxnh"]
-[ext_resource type="FontFile" uid="uid://pk2mgma012kr" path="res://Assets/kenvector_future_thin.ttf" id="1_u5kwf"]
+[ext_resource type="Script" uid="uid://ckh0jdu7hj2j" path="res://Scripts/level_complete.gd" id="1_k52d1"]
+[ext_resource type="FontFile" uid="uid://pk2mgma012kr" path="res://Assets/kenvector_future_thin.ttf" id="2_ktc4i"]
 
-[node name="GameOver" type="Control"]
+[node name="LevelComplete" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_eqxnh")
+script = ExtResource("1_k52d1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -36,10 +36,9 @@ offset_right = 355.0
 offset_bottom = 221.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_u5kwf")
+theme_override_fonts/font = ExtResource("2_ktc4i")
 theme_override_font_sizes/font_size = 72
-text = "Level
-Complete!"
+text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -57,17 +56,17 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NextBtn" type="Button" parent="VBoxContainer"]
+[node name="RestartBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_u5kwf")
+theme_override_fonts/font = ExtResource("2_ktc4i")
 theme_override_font_sizes/font_size = 48
-text = "Next Level"
+text = "Try Again"
 
 [node name="HomeBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_u5kwf")
+theme_override_fonts/font = ExtResource("2_ktc4i")
 theme_override_font_sizes/font_size = 48
 text = "Home"
 
-[connection signal="pressed" from="VBoxContainer/NextBtn" to="." method="_on_next_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/HomeBtn" to="." method="_on_home_btn_pressed"]

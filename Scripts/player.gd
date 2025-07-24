@@ -101,10 +101,11 @@ func _physics_process(delta: float) -> void:
 		set_animation('Idle')
 		
 	if is_dead:
-		#TODO: Add SFX and UI
-		set_animation('Die')
 		current_character.velocity = Vector2(0,0)
 		freeze_controls = true
+		#TODO: Add SFX and UI
+		set_animation('Die')
+		GameManager.show_game_over_ui()
 		
 	current_character.move_and_slide()
 	flip_sprite = sprite.flip_h

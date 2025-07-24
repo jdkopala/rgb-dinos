@@ -699,15 +699,39 @@ position = Vector2(1416, 600)
 [node name="Goal" parent="." instance=ExtResource("7_8liyf")]
 position = Vector2(1216, 432)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="TutorialText" type="Node2D" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_top = 384.0
-offset_right = 256.0
-offset_bottom = 447.0
+[node name="Label" type="Label" parent="TutorialText"]
+offset_left = 8.0
+offset_top = 392.0
+offset_right = 438.0
+offset_bottom = 472.0
 text = "Your dino can walk through blocks that match it's color!
 Press X to switch colors, they will always cycle
 Red -> Green -> Blue"
+
+[node name="Label4" type="Label" parent="TutorialText"]
+offset_left = 592.0
+offset_top = 392.0
+offset_right = 760.0
+offset_bottom = 472.0
+text = "Hold LB to run,
+Press RB to dash,
+Press A to Jump."
+
+[node name="Label2" type="Label" parent="TutorialText"]
+offset_left = 1360.0
+offset_top = 656.0
+offset_right = 1544.0
+offset_bottom = 688.0
+text = "Don't touch the spikes!"
+
+[node name="Label3" type="Label" parent="TutorialText"]
+offset_left = 1408.0
+offset_top = 192.0
+offset_right = 1693.0
+offset_bottom = 224.0
+text = "Touch the egg to go to the next level!"
 
 [connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]
