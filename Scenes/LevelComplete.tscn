@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ckh0jdu7hj2j" path="res://Scripts/level_complete.gd" id="1_eqxnh"]
 [ext_resource type="FontFile" uid="uid://pk2mgma012kr" path="res://Assets/kenvector_future_thin.ttf" id="1_u5kwf"]
 
-[node name="GameOver" type="Control"]
+[node name="LevelComplete" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
