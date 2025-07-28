@@ -21,190 +21,251 @@ script = ExtResource("2_tofop")
 
 [node name="RedBlock" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(272, 560)
+contact_monitor = true
 
 [node name="RedBlock5" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(272, 592)
+contact_monitor = true
 
 [node name="RedBlock2" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(272, 528)
+contact_monitor = true
 
 [node name="RedBlock3" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1168, 560)
+contact_monitor = true
 
 [node name="RedBlock6" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1168, 592)
+contact_monitor = true
 
 [node name="RedBlock7" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1584, 592)
+contact_monitor = true
 
 [node name="RedBlock8" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1616, 592)
+contact_monitor = true
 
 [node name="RedBlock9" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1648, 592)
+contact_monitor = true
 
 [node name="RedBlock10" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1680, 592)
+contact_monitor = true
 
 [node name="RedBlock11" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1712, 592)
+contact_monitor = true
 
 [node name="RedBlock12" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1616, 560)
+contact_monitor = true
 
 [node name="RedBlock13" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1648, 560)
+contact_monitor = true
 
 [node name="RedBlock14" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1680, 560)
+contact_monitor = true
 
 [node name="RedBlock15" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1712, 560)
+contact_monitor = true
 
 [node name="RedBlock16" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1648, 528)
+contact_monitor = true
 
 [node name="RedBlock17" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1680, 528)
+contact_monitor = true
 
 [node name="RedBlock18" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1712, 528)
+contact_monitor = true
 
 [node name="RedBlock19" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1680, 496)
+contact_monitor = true
 
 [node name="RedBlock20" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1712, 496)
+contact_monitor = true
 
 [node name="RedBlock21" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1712, 464)
+contact_monitor = true
 
 [node name="RedBlock22" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1200, 304)
+contact_monitor = true
 
 [node name="RedBlock23" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1232, 304)
+contact_monitor = true
 
 [node name="RedBlock24" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1264, 304)
+contact_monitor = true
 
 [node name="RedBlock25" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1296, 304)
+contact_monitor = true
 
 [node name="RedBlock26" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1328, 304)
+contact_monitor = true
 
 [node name="RedBlock27" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1328, 336)
+contact_monitor = true
 
 [node name="RedBlock28" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1328, 368)
+contact_monitor = true
 
 [node name="RedBlock29" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1328, 400)
+contact_monitor = true
 
 [node name="RedBlock30" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1328, 432)
+contact_monitor = true
 
 [node name="RedBlock4" parent="Stage/RedBlocks" instance=ExtResource("3_cwehp")]
 position = Vector2(1168, 528)
+contact_monitor = true
 
 [node name="GreenBlocks" type="Node2D" parent="Stage"]
 
 [node name="GreenBlock" parent="Stage/GreenBlocks" instance=ExtResource("4_gfxy5")]
 position = Vector2(528, 560)
+contact_monitor = true
 
 [node name="GreenBlock6" parent="Stage/GreenBlocks" instance=ExtResource("4_gfxy5")]
 position = Vector2(528, 592)
+contact_monitor = true
 
 [node name="GreenBlock2" parent="Stage/GreenBlocks" instance=ExtResource("4_gfxy5")]
 position = Vector2(528, 528)
+contact_monitor = true
 
 [node name="GreenBlock3" parent="Stage/GreenBlocks" instance=ExtResource("4_gfxy5")]
 position = Vector2(1200, 368)
+contact_monitor = true
 
 [node name="GreenBlock4" parent="Stage/GreenBlocks" instance=ExtResource("4_gfxy5")]
 position = Vector2(1232, 368)
+contact_monitor = true
 
 [node name="GreenBlock5" parent="Stage/GreenBlocks" instance=ExtResource("4_gfxy5")]
 position = Vector2(1264, 368)
+contact_monitor = true
 
 [node name="GreenBlock7" parent="Stage/GreenBlocks" instance=ExtResource("4_gfxy5")]
 position = Vector2(1264, 400)
+contact_monitor = true
 
 [node name="GreenBlock8" parent="Stage/GreenBlocks" instance=ExtResource("4_gfxy5")]
 position = Vector2(1264, 432)
+contact_monitor = true
 
 [node name="BlueBlocks" type="Node2D" parent="Stage"]
 
 [node name="BlueBlock" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(816, 592)
+contact_monitor = true
 
 [node name="BlueBlock2" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(816, 560)
+contact_monitor = true
 
 [node name="BlueBlock3" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(816, 528)
+contact_monitor = true
 
 [node name="BlueBlock4" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1552, 464)
+contact_monitor = true
 
 [node name="BlueBlock5" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1584, 464)
+contact_monitor = true
 
 [node name="BlueBlock6" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1616, 464)
+contact_monitor = true
 
 [node name="BlueBlock7" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1648, 464)
+contact_monitor = true
 
 [node name="BlueBlock8" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1680, 464)
+contact_monitor = true
 
 [node name="BlueBlock9" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1360, 432)
+contact_monitor = true
 
 [node name="BlueBlock10" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1392, 432)
+contact_monitor = true
 
 [node name="BlueBlock11" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1424, 432)
+contact_monitor = true
 
 [node name="BlueBlock12" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1456, 432)
+contact_monitor = true
 
 [node name="BlueBlock14" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1360, 400)
+contact_monitor = true
 
 [node name="BlueBlock15" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1392, 400)
+contact_monitor = true
 
 [node name="BlueBlock16" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1424, 400)
+contact_monitor = true
 
 [node name="BlueBlock17" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1456, 400)
+contact_monitor = true
 
 [node name="BlueBlock18" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1360, 368)
+contact_monitor = true
 
 [node name="BlueBlock19" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1392, 368)
+contact_monitor = true
 
 [node name="BlueBlock21" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1360, 336)
+contact_monitor = true
 
 [node name="BlueBlock23" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1360, 304)
+contact_monitor = true
 
 [node name="BlueBlock22" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1392, 336)
+contact_monitor = true
 
 [node name="BlueBlock20" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1424, 368)
+contact_monitor = true
 
 [node name="BlueBlock13" parent="Stage/BlueBlocks" instance=ExtResource("5_vg0vj")]
 position = Vector2(1488, 432)
+contact_monitor = true
 
 [node name="GrayBlocks" type="Node2D" parent="Stage"]
 
@@ -731,7 +792,7 @@ offset_left = 1408.0
 offset_top = 192.0
 offset_right = 1693.0
 offset_bottom = 224.0
-text = "Touch the egg to go to the next level!"
+text = "Touch the egg to finish the level!"
 
 [connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]
