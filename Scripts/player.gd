@@ -1,7 +1,8 @@
 extends Node
 
 enum DinoColor { RED, GREEN, BLUE }
-@export_enum("RED", "GREEN", "BLUE") var current_color: int = DinoColor.RED
+@export_enum("RED", "GREEN", "BLUE") 
+var current_color: int = DinoColor.RED
 var previous_color: int = DinoColor.RED
 @onready var dino_scenes = {
 	DinoColor.RED: preload('res://Scenes/Dinos/red_dino.tscn'),
@@ -111,7 +112,6 @@ func _physics_process(delta: float) -> void:
 	flip_sprite = sprite.flip_h
 	
 func toggle_dino_color():
-	#TODO: Add logic so player dies if they change colors inside the wrong color block might be the same as the player getting crushed?d
 	previous_color = current_color
 	current_color = (current_color + 1) % len(dino_scenes)
 	

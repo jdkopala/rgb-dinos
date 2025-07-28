@@ -1,9 +1,5 @@
 extends Node2D
 
-@onready var red_blocks = $RedBlocks.get_children()
-@onready var green_blocks = $GreenBlocks.get_children()
-@onready var blue_blocks = $BlueBlocks.get_children()
-
 @onready var block_groups = {
 	0: $RedBlocks.get_children(),
 	1: $GreenBlocks.get_children(),
