@@ -43,6 +43,11 @@ func _physics_process(delta: float) -> void:
 	var sprite = current_character.get_node("AnimatedSprite2D")
 	
 	if !freeze_controls:
+		# TODO: lift up camera postion so the player character sits closer to the bottom of the screen
+		# if the character falls off the screen
+		if current_character.global_position.y > 650:
+			is_dead = true
+		
 		if current_character:
 			var target_position = current_character.global_position
 			camera.global_position = camera.global_position.lerp(target_position, camera.position_smoothing_speed * delta)
