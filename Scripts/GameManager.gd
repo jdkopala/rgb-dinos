@@ -43,7 +43,7 @@ func load_level(level_index: int):
 	
 	current_stage = level_scenes[current_level].instantiate()
 	main_scene.call_deferred("add_child", current_stage)
-	play_looped_audio(level_music)
+	play_audio(level_music)
 
 func level_complete():
 	stop_audio()
@@ -80,13 +80,10 @@ func start_next_level():
 	current_level += 1
 	load_level(current_level)
 	
-func play_looped_audio(audio: AudioStream):
-	audio_stream.stream = audio
-	audio_stream.play()
-	
 func play_audio(audio: AudioStream):
 	audio_stream.stream = audio
 	audio_stream.play()
 	
 func stop_audio():
-	audio_stream.stop()
+	if audio_stream:
+		audio_stream.stop()
