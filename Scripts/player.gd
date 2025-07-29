@@ -38,6 +38,8 @@ var freeze_controls: bool = false
 func _ready():
 	current_character = dino_scenes[DinoColor.RED].instantiate()
 	add_child(current_character)
+	# TODO: Remove this camera offset if it sucks when levels start to come together
+	camera.global_position.y = clamp(camera.global_position.y, -100000, 340)
 	
 func _physics_process(delta: float) -> void:
 	var sprite = current_character.get_node("AnimatedSprite2D")
@@ -45,11 +47,13 @@ func _physics_process(delta: float) -> void:
 	if !freeze_controls:
 		# TODO: lift up camera postion so the player character sits closer to the bottom of the screen
 		# if the character falls off the screen
-		if current_character.global_position.y > 650:
+		if current_character.global_position.y > 750:
 			is_dead = true
 		
 		if current_character:
 			var target_position = current_character.global_position
+			# TODO: Remove this camera offset if it sucks when levels start to come together
+			target_position.y = clamp(target_position.y, -100000, 340)
 			camera.global_position = camera.global_position.lerp(target_position, camera.position_smoothing_speed * delta)
 		
 		if not current_character.is_on_floor():
@@ -107,11 +111,11 @@ func _physics_process(delta: float) -> void:
 		set_animation('Idle')
 		
 	if is_dead:
+		GameManager.stop_audio()
 		current_character.velocity = Vector2(0,0)
 		freeze_controls = true
-		#TODO: Add SFX and UI
+		#TODO: Add SFX
 		set_animation('Die')
-		#GameManager.show_game_over_ui()
 		
 	current_character.move_and_slide()
 	flip_sprite = sprite.flip_h
@@ -122,7 +126,7 @@ func toggle_dino_color():
 	
 	remove_child(current_character)
 	var next_dino = dino_scenes[current_color].instantiate()
-	next_dino.get_child(0).flip_h = flip_sprite
+	next_dino.get_node("AnimatedSprite2D").flip_h = flip_sprite
 	next_dino.position = current_character.position
 	current_character = next_dino
 	add_child(next_dino)

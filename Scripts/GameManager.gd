@@ -2,11 +2,14 @@ extends Node2D
 
 var current_level: int = 0
 var level_scenes = []
-var completed_levels = []
+var completed_levels: Array[int] = []
 
 var main_scene: Node = null
+var audio_stream: AudioStreamPlayer = null
 var current_stage: Node = null
 var UI: Node = null
+
+@onready var level_music: AudioStream = preload("res://Assets/Sounds/Puzzles.ogg")
 
 func _ready():
 	var dir = DirAccess.open('res://Scenes/Levels')
@@ -27,6 +30,7 @@ func _ready():
 	
 func start_game(main_scene_ref: Node):
 	main_scene = main_scene_ref
+	audio_stream = main_scene.get_node("AudioStreamPlayer")
 	load_level(current_level)
 	
 func load_level(level_index: int):
@@ -39,13 +43,18 @@ func load_level(level_index: int):
 	
 	current_stage = level_scenes[current_level].instantiate()
 	main_scene.call_deferred("add_child", current_stage)
+	play_looped_audio(level_music)
 
 func level_complete():
-	#TODO: Store the completed level index for a level select menu later
+	stop_audio()
+	#TODO: Create Level Select
+	if !completed_levels.find(current_level, 0):
+		completed_levels.append(current_level)
 	var goal = main_scene.get_node('LevelScene').get_node('Goal')
 	goal.level_complete_animate()
 	
 func show_level_complete_ui():
+	stop_audio()
 	if current_stage:
 		current_stage.queue_free()
 	var level_complete_scene = load("res://Scenes/LevelComplete.tscn").instantiate()
@@ -53,6 +62,7 @@ func show_level_complete_ui():
 	main_scene.add_child(UI)
 	
 func show_game_over_ui():
+	stop_audio()
 	if current_stage:
 		current_stage.queue_free()
 	var game_over_scene = load('res://Scenes/GameOver.tscn').instantiate()
@@ -70,3 +80,13 @@ func start_next_level():
 	current_level += 1
 	load_level(current_level)
 	
+func play_looped_audio(audio: AudioStream):
+	audio_stream.stream = audio
+	audio_stream.play()
+	
+func play_audio(audio: AudioStream):
+	audio_stream.stream = audio
+	audio_stream.play()
+	
+func stop_audio():
+	audio_stream.stop()

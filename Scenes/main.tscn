@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqwgxytj8siqj"]
+[gd_scene load_steps=3 format=3 uid="uid://dqwgxytj8siqj"]
 
 [ext_resource type="Script" uid="uid://c7hyd1e1qu8se" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="AudioStream" uid="uid://ci75bva6ap46r" path="res://Assets/Sounds/Puzzles.ogg" id="2_bo1nx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_jjgbg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bo1nx")
+parameters/looping = true
