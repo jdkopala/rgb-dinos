@@ -781,10 +781,10 @@ Press RB to dash,
 Press A to Jump."
 
 [node name="Label2" type="Label" parent="TutorialText"]
-offset_left = 1360.0
-offset_top = 656.0
-offset_right = 1544.0
-offset_bottom = 688.0
+offset_left = 1352.0
+offset_top = 512.0
+offset_right = 1536.0
+offset_bottom = 544.0
 text = "Don't touch the spikes!"
 
 [node name="Label3" type="Label" parent="TutorialText"]

@@ -50,16 +50,16 @@ position = Vector2(48, 304)
 position = Vector2(16, 304)
 
 [node name="RedBlock5" parent="Stage/RedBlocks" instance=ExtResource("3_d4xud")]
-position = Vector2(944, 592)
+position = Vector2(912, 592)
 
 [node name="RedBlock6" parent="Stage/RedBlocks" instance=ExtResource("3_d4xud")]
-position = Vector2(944, 560)
+position = Vector2(912, 560)
 
 [node name="RedBlock7" parent="Stage/RedBlocks" instance=ExtResource("3_d4xud")]
-position = Vector2(944, 528)
+position = Vector2(912, 528)
 
 [node name="RedBlock8" parent="Stage/RedBlocks" instance=ExtResource("3_d4xud")]
-position = Vector2(944, 496)
+position = Vector2(912, 496)
 
 [node name="RedBlock12" parent="Stage/RedBlocks" instance=ExtResource("3_d4xud")]
 position = Vector2(976, 432)
@@ -205,28 +205,25 @@ position = Vector2(432, 208)
 position = Vector2(432, 176)
 
 [node name="GreenBlock5" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
-position = Vector2(848, 592)
+position = Vector2(784, 592)
 
 [node name="GreenBlock6" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
-position = Vector2(848, 560)
+position = Vector2(784, 560)
 
 [node name="GreenBlock7" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
-position = Vector2(848, 528)
+position = Vector2(784, 528)
 
 [node name="GreenBlock8" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
-position = Vector2(848, 496)
+position = Vector2(784, 496)
 
 [node name="GreenBlock13" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
 position = Vector2(624, 400)
 
-[node name="GreenBlock17" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
-position = Vector2(112, 400)
-
 [node name="GreenBlock18" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
-position = Vector2(80, 368)
+position = Vector2(112, 336)
 
 [node name="GreenBlock19" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
-position = Vector2(48, 336)
+position = Vector2(80, 368)
 
 [node name="GreenBlock14" parent="Stage/GreenBlocks" instance=ExtResource("4_q5el5")]
 position = Vector2(624, 368)
@@ -273,16 +270,16 @@ position = Vector2(464, 528)
 position = Vector2(464, 496)
 
 [node name="BlueBlock5" parent="Stage/BlueBlocks" instance=ExtResource("5_t0ble")]
-position = Vector2(752, 592)
+position = Vector2(656, 592)
 
 [node name="BlueBlock6" parent="Stage/BlueBlocks" instance=ExtResource("5_t0ble")]
-position = Vector2(752, 560)
+position = Vector2(656, 560)
 
 [node name="BlueBlock7" parent="Stage/BlueBlocks" instance=ExtResource("5_t0ble")]
-position = Vector2(752, 528)
+position = Vector2(656, 528)
 
 [node name="BlueBlock8" parent="Stage/BlueBlocks" instance=ExtResource("5_t0ble")]
-position = Vector2(752, 496)
+position = Vector2(656, 496)
 
 [node name="BlueBlock11" parent="Stage/BlueBlocks" instance=ExtResource("5_t0ble")]
 position = Vector2(496, 400)
@@ -355,9 +352,6 @@ position = Vector2(240, 208)
 
 [node name="BlueBlock35" parent="Stage/BlueBlocks" instance=ExtResource("5_t0ble")]
 position = Vector2(240, 176)
-
-[node name="BlueBlock18" parent="Stage/BlueBlocks" instance=ExtResource("5_t0ble")]
-position = Vector2(112, 432)
 
 [node name="BlueBlock19" parent="Stage/BlueBlocks" instance=ExtResource("5_t0ble")]
 position = Vector2(80, 400)
@@ -438,9 +432,6 @@ position = Vector2(528, 592)
 
 [node name="GrayBlock164" parent="Stage/GrayBlocks" instance=ExtResource("3_c01y6")]
 position = Vector2(624, 592)
-
-[node name="GrayBlock165" parent="Stage/GrayBlocks" instance=ExtResource("3_c01y6")]
-position = Vector2(720, 592)
 
 [node name="GrayBlock18" parent="Stage/GrayBlocks" instance=ExtResource("3_c01y6")]
 position = Vector2(560, 624)
@@ -909,9 +900,6 @@ position = Vector2(176, 144)
 [node name="Spikes" parent="Stage/Hazards" instance=ExtResource("7_nvbyj")]
 position = Vector2(552, 600)
 
-[node name="Spikes2" parent="Stage/Hazards" instance=ExtResource("7_nvbyj")]
-position = Vector2(648, 600)
-
 [node name="Spikes3" parent="Stage/Hazards" instance=ExtResource("7_nvbyj")]
 position = Vector2(776, 440)
 
@@ -933,7 +921,6 @@ position = Vector2(1088, 272)
 [connection signal="child_entered_tree" from="Player" to="Stage" method="_on_player_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Player" to="Stage" method="_on_player_child_exiting_tree"]
 [connection signal="body_entered" from="Stage/Hazards/Spikes" to="Player" method="_on_hazard_body_entered"]
-[connection signal="body_entered" from="Stage/Hazards/Spikes2" to="Player" method="_on_hazard_body_entered"]
 [connection signal="body_entered" from="Stage/Hazards/Spikes3" to="Player" method="_on_hazard_body_entered"]
 [connection signal="body_entered" from="Stage/Hazards/Spikes4" to="Player" method="_on_hazard_body_entered"]
 [connection signal="body_entered" from="Stage/Hazards/Spikes6" to="Player" method="_on_hazard_body_entered"]
