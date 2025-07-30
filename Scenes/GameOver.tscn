@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cspo7tftm3qp0"]
+[gd_scene load_steps=4 format=3 uid="uid://cspo7tftm3qp0"]
 
-[ext_resource type="Script" uid="uid://ckh0jdu7hj2j" path="res://Scripts/level_complete.gd" id="1_k52d1"]
+[ext_resource type="Script" uid="uid://c3y817w7yl4a7" path="res://Scripts/game_over.gd" id="1_k52d1"]
 [ext_resource type="FontFile" uid="uid://pk2mgma012kr" path="res://Assets/kenvector_future_thin.ttf" id="2_ktc4i"]
+[ext_resource type="AudioStream" uid="uid://ci75bva6ap46r" path="res://Assets/Sounds/Puzzles.ogg" id="3_ktc4i"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -67,6 +68,10 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ktc4i")
 theme_override_font_sizes/font_size = 48
 text = "Home"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ktc4i")
+volume_db = -16.0
 
 [connection signal="pressed" from="VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/HomeBtn" to="." method="_on_home_btn_pressed"]

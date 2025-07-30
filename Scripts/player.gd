@@ -17,6 +17,7 @@ var player_audio_stream: AudioStreamPlayer2D
 @onready var jump_sound: AudioStream = preload("res://Assets/Sounds/Jump_6.wav")
 @onready var die_sound: AudioStream = preload("res://Assets/Sounds/Hit_long.wav")
 @onready var dash_sound: AudioStream = preload("res://Assets/Sounds/Laser_4.wav")
+@onready var toggle_color_sound: AudioStream = preload("res://Assets/Sounds/color_change.wav")
 
 var gravity: float = 980
 @export var walk_speed: int = 250
@@ -133,6 +134,7 @@ func _physics_process(delta: float) -> void:
 	flip_sprite = sprite.flip_h
 	
 func toggle_dino_color():
+	# TODO: Add a sound for changing dino color
 	previous_color = current_color
 	current_color = (current_color + 1) % len(dino_scenes)
 	
@@ -143,6 +145,7 @@ func toggle_dino_color():
 	current_character = next_dino
 	player_audio_stream = current_character.get_node("AudioStreamPlayer")
 	add_child(next_dino)
+	play_audio(toggle_color_sound)
 	
 func set_animation(animation: String) -> void:
 	var sprite = current_character.get_node("AnimatedSprite2D")
