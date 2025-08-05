@@ -17,6 +17,9 @@ func _ready():
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
+			# This is added to scene files when exported - best practice is to strip it out in these situations
+			if file_name.ends_with(".remap"):
+				file_name = file_name.split('.remap')[0]
 			if file_name.ends_with(".tscn"):
 				level_scenes.append(load("res://Scenes/Levels/" + file_name))
 			file_name = dir.get_next()
@@ -27,7 +30,7 @@ func _ready():
 			preload('res://Scenes/Levels/Level3.tscn'),
 			preload('res://Scenes/Levels/Level4.tscn')
 		]
-	
+
 func start_game(main_scene_ref: Node):
 	main_scene = main_scene_ref
 	audio_stream = main_scene.get_node("AudioStreamPlayer")
