@@ -19,6 +19,8 @@ Collect the egg at the end of the stage to move on to the next level
 ASSETS:
 
 Little dino guys: https://demching.itch.io/dino-family
+
 Music: https://joshuuu.itch.io/short-loopable-background-music
+
 SFX: https://yourpalrob.itch.io/classic-arcade-sound-effects (Free Pack)
 
