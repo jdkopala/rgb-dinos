@@ -764,11 +764,12 @@ position = Vector2(1216, 432)
 
 [node name="Label" type="Label" parent="TutorialText"]
 offset_left = 8.0
-offset_top = 392.0
-offset_right = 438.0
-offset_bottom = 472.0
+offset_top = 368.0
+offset_right = 466.0
+offset_bottom = 469.0
 text = "Your dino can walk through blocks that match it's color!
-Press X to switch colors, they will always cycle
+Use Left and Right on the D-Pad, OR [A] and [D] to move
+Press X/Square or [E] to switch colors, they will always cycle
 Red -> Green -> Blue"
 
 [node name="Label4" type="Label" parent="TutorialText"]
@@ -776,9 +777,9 @@ offset_left = 592.0
 offset_top = 392.0
 offset_right = 760.0
 offset_bottom = 472.0
-text = "Hold LB to run,
-Press RB to dash,
-Press A to Jump."
+text = "Hold LB/L1/[R Shift] to run,
+Press RB/R1/[S] to dash,
+Press A/X/[Space] to Jump."
 
 [node name="Label2" type="Label" parent="TutorialText"]
 offset_left = 1352.0
