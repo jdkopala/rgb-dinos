@@ -13,3 +13,6 @@ func _ready():
 	
 func _on_next_btn_pressed() -> void:
 	GameManager.start_next_level()
+
+func _on_home_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")

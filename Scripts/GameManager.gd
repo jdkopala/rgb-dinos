@@ -19,7 +19,7 @@ func _ready():
 		while file_name != "":
 			# This is added to scene files when exported - best practice is to strip it out in these situations
 			if file_name.ends_with(".remap"):
-				file_name = file_name.split('.remap')[0]
+				file_name = file_name.replace('.remap', '')
 			if file_name.ends_with(".tscn"):
 				level_scenes.append(load("res://Scenes/Levels/" + file_name))
 			file_name = dir.get_next()
