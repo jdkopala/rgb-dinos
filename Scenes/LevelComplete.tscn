@@ -70,4 +70,4 @@ theme_override_font_sizes/font_size = 48
 text = "Home"
 
 [connection signal="pressed" from="VBoxContainer/NextBtn" to="." method="_on_next_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/HomeBtn" to="." method="_on_home_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HomeBtn" to="." method="_on_home_button_pressed"]
