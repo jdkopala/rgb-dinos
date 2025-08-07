@@ -2,6 +2,8 @@
 
 I built this tiny game with some free assets from itch.io, there are only 4 levels right now because I was more focussed on getting the mechanics and game flow implemented than building a fleshed out platformer.
 
+You can download the RGBDinos.exe from the repo and give it a try!
+
 Your dinosaur cycles between 3 colors - Red, Green and Blue. The blocks that match the current dinosaur color will be transparent, and your dinosaur will pass through them.
 
 <img width="1163" height="657" alt="image" src="https://github.com/user-attachments/assets/e781373b-eea8-4975-a166-1cb2b71c521e" />
